@@ -1,0 +1,19 @@
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  valuesContent: |-
+    deployment:
+      kind: DaemonSet
+    hostNetwork: true
+    dashboard:
+      enabled: true
+    logs:
+      level: INFO
+      access:
+        enabled: true
+    additionalArguments:
+      - "--entryPoints.web.proxyProtocol.insecure"
+      - "--entryPoints.websecure.proxyProtocol.insecure"
