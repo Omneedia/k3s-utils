@@ -23,7 +23,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.middlewares: omneedia-logging-secure-logs@kubernetescrd
 spec:
   rules:
-    - host: l.${DOMAIN}
+    - host: ${LOKI_URI}
       http:
         paths:
           - path: /
