@@ -20,7 +20,6 @@ metadata:
   name: logs-ingress
   annotations:
     kubernetes.io/ingress.class: traefik
-    cert-manager.io/cluster-issuer: letsencrypt-prod
     traefik.ingress.kubernetes.io/router.middlewares: omneedia-logging-secure-logs@kubernetescrd
 spec:
   rules:
@@ -34,7 +33,3 @@ spec:
                 name: loki-stack
                 port:
                   number: 3100
-  tls:
-    - secretName: loki-logs-tls
-      hosts:
-        - l.${DOMAIN}

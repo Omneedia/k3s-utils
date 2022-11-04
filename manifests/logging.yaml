@@ -4,7 +4,6 @@ metadata:
   name: loki-ingress
   annotations:
     kubernetes.io/ingress.class: traefik
-    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
   rules:
     - host: logs.${DOMAIN}
@@ -17,7 +16,3 @@ spec:
                 name: loki-grafana
                 port:
                   number: 80
-  tls:
-    - secretName: loki-tls
-      hosts:
-        - logs.${DOMAIN}
